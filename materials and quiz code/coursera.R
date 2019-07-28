@@ -567,7 +567,7 @@ friedman_test(Effort ~ Technique | Subject, data=srchscrlvce, distribution="asym
 # within-Ss factorial designs from what we do here.
 
 # read in data file of smartphone text entry by 24 people
-mbltxt = read.csv("mbltxt.csv")
+mbltxt = read.csv("/Users/yemao/documents/coursera/Designing Running and Analyzing Experiments/materials and quiz code/mbltxt.csv")
 View(mbltxt)
 mbltxt$Subject = factor(mbltxt$Subject) # convert to nominal factor
 mbltxt$Posture_Order = factor(mbltxt$Posture_Order) # convert to nominal factor
@@ -597,7 +597,7 @@ m$ANOVA
 # now perform the two-way mixed factorial repeated measures ANOVA
 m = ezANOVA(dv=WPM, between=Keyboard, within=Posture, wid=Subject, data=mbltxt)
 m$Mauchly # sig. so use GGe correction
-m$ANOVA
+ 
 # note: "ges" in m$ANOVA is the generalized eta-squared measure
 # of effect size, preferred to eta-squared or partial eta-squared. 
 # see Bakeman (2005) in the References at ?ezANOVA.
