@@ -690,7 +690,7 @@ testInteractions(artlm(m, "Keyboard:Posture"), pairwise=c("Keyboard", "Posture")
 ## -----  Multinomial distribution w/ logit link fn
 
 # re-read our data showing preferences by sex
-prefsABCsex.2 = read.csv("prefsABCsex.csv") # revisiting so add ".2"
+prefsABCsex.2 = read.csv("/Users/yemao/documents/coursera/Designing Running and Analyzing Experiments/materials and quiz code/prefsABCsex.csv") # revisiting so add ".2"
 View(prefsABCsex.2)
 prefsABCsex.2$Subject = factor(prefsABCsex.2$Subject) # convert to nominal factor
 summary(prefsABCsex.2)
@@ -721,14 +721,14 @@ p.adjust(c(ma$p.value, mb$p.value, mc$p.value), method="holm") # correct for mul
 fa = binom.test(sum(prefsABCsex.2[prefsABCsex.2$Sex == "F",]$Pref == "A"), nrow(prefsABCsex.2[prefsABCsex.2$Sex == "F",]), p=1/3)
 fb = binom.test(sum(prefsABCsex.2[prefsABCsex.2$Sex == "F",]$Pref == "B"), nrow(prefsABCsex.2[prefsABCsex.2$Sex == "F",]), p=1/3)
 fc = binom.test(sum(prefsABCsex.2[prefsABCsex.2$Sex == "F",]$Pref == "C"), nrow(prefsABCsex.2[prefsABCsex.2$Sex == "F",]), p=1/3)
-p.adjust(c(fa$p.value, fb$p.value, fc$p.value), method="holm") # correct for multiple comparisons
+p.adjust(c(fa$p.value, fb$p.value, fc$p.value), method="holm") # correctfor multiple comparisons
 
 
 ## GLM 2: Ordinal logistic regression for Likert responses
 ## -----  Multinomial distribution w/ cumulative logit link fn
 
 # re-read our data showing Effort Likert rating for finding contacts on a smartphone
-srchscrlvce.2 = read.csv("srchscrlvce.csv") # revisiting so add ".2"
+srchscrlvce.2 = read.csv("/Users/yemao/documents/coursera/Designing Running and Analyzing Experiments/materials and quiz code/srchscrlvce.csv") # revisiting so add ".2"
 View(srchscrlvce.2)
 srchscrlvce.2$Subject = (1:nrow(srchscrlvce.2)) # recode as between-Ss study
 srchscrlvce.2$Subject = factor(srchscrlvce.2$Subject) # convert to nominal factor
