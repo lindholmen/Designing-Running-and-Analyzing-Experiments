@@ -820,13 +820,13 @@ summary(glht(m, mcp(Technique="Tukey")), test=adjusted(type="holm")) # Tukey mea
 
 # read in data file of smartphone text entry by 24 people, but now
 # it has every single trial performed, not averaged over trials.
-mbltxttrials = read.csv("mbltxttrials.csv")
+mbltxttrials = read.csv("/Users/yemao/documents/coursera/Designing Running and Analyzing Experiments/materials and quiz code/mbltxttrials.csv")
 View(mbltxttrials)
 mbltxttrials$Subject = factor(mbltxttrials$Subject) # convert to nominal factor
 mbltxttrials$Posture_Order = factor(mbltxttrials$Posture_Order) # convert to nominal factor
 mbltxttrials$Trial = factor(mbltxttrials$Trial) # convert to nominal factor
 summary(mbltxttrials)
-
+summary(mbltxttrials$Subject)
 # explore the WPM data
 library(plyr)
 ddply(mbltxttrials, ~ Keyboard * Posture, function(data) summary(data$WPM))
@@ -891,10 +891,6 @@ View(mbltxttrials) # verify
 summary(mbltxttrials)
 
 # explore new Errors column
-library(plyr)
-ddply(mbltxttrials, ~ Keyboard * Posture, function(data) summary(data$Errors))
-ddply(mbltxttrials, ~ Keyboard * Posture, summarise, Errors.mean=mean(Errors), Errors.sd=sd(Errors))
-
 # histograms for two factors
 hist(mbltxttrials[mbltxttrials$Keyboard == "iPhone" & mbltxttrials$Posture == "Sit",]$Errors)
 hist(mbltxttrials[mbltxttrials$Keyboard == "iPhone" & mbltxttrials$Posture == "Stand",]$Errors)
